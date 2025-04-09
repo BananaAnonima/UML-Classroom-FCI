@@ -17,15 +17,25 @@
 - [Diagrama de Casos de Uso](#diagrama-de-casos-de-uso)
 - [Descrição dos Casos de Uso](#descrição-dos-casos-de-uso)
     - [Autenticar operador](#autenticar-operador)
+    - [Fluxo Principal - Autenticar operador](#fluxo-principal---autenticar-operador)
     - [Gerenciar frota](#gerenciar-frota)
+    - [Fluxo Principal - gerenciar frota](#fluxo-principal---gerenciar-frota)
     - [Comandar e controlar drones](#comandar-e-controlar-drones)
+    - [Fluxo Principal - Comandar e controlar drones](#fluxo-principal---comandar-e-controlar-drones)
     - [Comunicação segura](#comunicação-segura)
+    - [Fluxo Principal - Comunicação segura](#fluxo-principal---comunicação-segura)
     - [Registro de missão](#registro-de-missão)
+    - [Fluxo Principal - Registro de missão](#fluxo-principal---registro-de-missão)
     - [Monitorar em tempo real](#monitorar-em-tempo-real)
+    - [Fluxo Principal - Monitorar em tempo real](#fluxo-principal---monitorar-em-tempo-real)
     - [Auditoria de eventos](#auditoria-de-eventos)
+    - [Fluxo Principal - Auditoria de eventos](#fluxo-principal---auditoria-de-eventos)
     - [Navegação Autônoma dos drones](#navegação-autônoma-dos-drones)
+    - [Fluxo Principal - Navegação Autônoma dos drones](#fluxo-principal---navegação-autônoma-dos-drones)
     - [Gerenciar atualização/recuperação](#gerenciar-atualizaçãorecuperação)
+    - [Fluxo Principal - Gerenciar atualização/recuperação](#fluxo-principal---gerenciar-atualizaçãorecuperação)
     - [Salva dados da missão](#salva-dados-da-missão)
+    - [Fluxo Principal - Salva dados da missão](#fluxo-principal---salva-dados-da-missão)
 - [Diagrama de Sequência](#diagrama-de-sequência)
 - [Diagrama de Classes](#diagrama-de-classes)
 - [Diagrama de Estados](#diagrama-de-estados)
@@ -109,51 +119,123 @@ A iniciativa visa substituir a antiga arquitetura de software do Aquila-X — um
 ### Autenticar operador
 **Ator:** Militares  
 **Descrição:** Valida o acesso do operador militar ao sistema através de autenticação com credenciais e/ou biometria.  
-**Fluxo Principal:**
-1. O operador informa suas credenciais.
-2. O sistema valida a autenticação.
-3. Caso válido, o acesso é concedido.
+### Fluxo Principal - Autenticar operador
+
+| Ações do Ator                     | Ações do Sistema                                      |
+|----------------------------------|-------------------------------------------------------|
+| 1. Inicia o sistema               |                                                       |
+| 2. Informa suas credenciais      | 3. Solicita autenticação multifatorial (biometria)    |
+| 4. Fornece a biometria           | 5. Valida os dados inseridos                          |
+|                                  | 6. Concede acesso à Central de Controle               |
 
 ### Gerenciar frota
 **Ator:** Militares  
 **Descrição:** Permite o controle da frota de drones cadastrados, atribuindo funções e organizando grupos.  
 **Inclusões:** Registro de missão  
 **Dependência:** Autenticação válida.
+### Fluxo Principal - gerenciar frota
+| Ações do Ator                     | Ações do Sistema                                     |
+|----------------------------------|------------------------------------------------------|
+| 1. Seleciona "Gerenciar Frota"   | 2. Exibe lista de drones disponíveis                 |
+| 3. Cria ou edita grupo de drones | 4. Salva alterações e associa drones aos grupos      |
+| 5. Define atribuições            | 6. Exibe confirmação e envia dados aos drones        |
+
 
 ### Comandar e controlar drones
 **Ator:** Militares  
 **Descrição:** Envia comandos diretos para os drones ou inicia modo de operação autônoma.  
 **Inclusões:** Comunicação segura  
+### Fluxo Principal - Comandar e controlar drones
+
+| Ações do Ator                     | Ações do Sistema                                     |
+|----------------------------------|------------------------------------------------------|
+| 1. Escolhe drone ou grupo        | 2. Exibe status e modo atual                         |
+| 3. Seleciona modo (manual/autônomo) | 4. Estabelece conexão segura com os drones       |
+| 5. Envia comandos ou ativa IA    | 6. Executa e exibe resposta da ação em tempo real    |
+
 
 ### Comunicação segura
 **Ator:** Militares  
 **Descrição:** Garante a troca de mensagens com criptografia entre o operador e os drones.
+### Fluxo Principal - Comunicação segura
+
+| Ações do Ator                 | Ações do Sistema                                     |
+|------------------------------|------------------------------------------------------|
+| 1. Envia comando              | 2. Aplica criptografia ao pacote de dados           |
+|                              | 3. Estabelece canal seguro e transmite o pacote     |
+|                              | 4. Aguarda confirmação de recebimento                |
 
 ### Registro de missão
 **Atores:** Militares, IA  
 **Descrição:** Armazena detalhes das missões, como localização, tempo, status e eventos ocorridos.
+### Fluxo Principal - Registro de missão
+
+| Ações do Ator     | Ações do Sistema                                           |
+|------------------|------------------------------------------------------------|
+| (automático)     | 1. Inicia gravação da missão ao início da operação         |
+|                  | 2. Registra eventos, status e localização em tempo real    |
+|                  | 3. Salva os dados no banco distribuído                     |
+|                  | 4. Fecha e assina o registro ao fim da missão              |
 
 ### Monitorar em tempo real
 **Ator:** Militares  
 **Descrição:** Permite acompanhar ao vivo a operação dos drones durante a missão.  
 **Extensão de:** Registro de missão
+### Fluxo Principal - Monitorar em tempo real
+
+| Ações do Ator               | Ações do Sistema                                |
+|----------------------------|-------------------------------------------------|
+| 1. Acessa tela de monitoramento | 2. Exibe mapa com posição em tempo real     |
+| 3. Visualiza sensores, status e rota | 4. Atualiza dados automaticamente     |
+|                            | 5. Permite zoom e troca de drone em exibição    |
 
 ### Auditoria de eventos
 **Ator:** Militares  
 **Descrição:** Acompanha eventos importantes durante a missão para posterior revisão e análise.
+### Fluxo Principal - Auditoria de eventos
+
+| Ações do Ator                   | Ações do Sistema                                  |
+|--------------------------------|---------------------------------------------------|
+| 1. Acessa histórico da missão   | 2. Recupera logs de eventos críticos              |
+| 3. Filtra por tipo ou horário   | 4. Exibe registros com data/hora, local e status  |
+| 5. Exporta ou imprime relatório | 6. Gera arquivo com assinatura digital            |
 
 ### Navegação Autônoma dos drones
 **Ator:** IA  
 **Descrição:** Controla o deslocamento automático dos drones, ajustando a rota com base nos dados de sensores e IA.
+### Fluxo Principal - Navegação Autônoma dos drones
+
+| Ações do Ator (IA)           | Ações do Sistema                                  |
+|-----------------------------|---------------------------------------------------|
+| (automático)                | 1. Processa dados de sensores (LIDAR, GPS, câmeras) |
+|                             | 2. Calcula rota ideal                             |
+|                             | 3. Ajusta direção e velocidade                    |
+|                             | 4. Evita obstáculos e atualiza destino            |
 
 ### Gerenciar atualização/recuperação
 **Ator:** IA  
 **Descrição:** Permite que a IA realize atualizações automáticas ou recuperação de falhas no sistema do drone.
+### Fluxo Principal - Gerenciar atualização/recuperação
+
+| Ações do Ator (IA)             | Ações do Sistema                                      |
+|-------------------------------|-------------------------------------------------------|
+| (automático ou programado)    | 1. Detecta falha ou atualizações pendentes           |
+|                               | 2. Inicia processo de atualização                     |
+|                               | 3. Reinicia subsistemas conforme necessário          |
+|                               | 4. Atualiza status e envia log ao servidor central   |
 
 ### Salva dados da missão
 **Ator:** IA  
 **Descrição:** Armazena todos os dados relevantes da missão de forma segura para posterior análise.
+### Fluxo Principal - Salva dados da missão
 
+| Ações do Ator (IA)       | Ações do Sistema                                          |
+|--------------------------|-----------------------------------------------------------|
+| (automático)             | 1. Coleta telemetria, rota, eventos, status              |
+|                          | 2. Gera arquivo de missão com checksum                   |
+|                          | 3. Envia para banco de dados NoSQL distribuído           |
+|                          | 4. Marca como disponível para visualização e auditoria   |
+|                          |                                                           | 
 # Diagrama de Sequência
 
 *&lt;Diagrama de ordem e interação dos objetos&gt;*
