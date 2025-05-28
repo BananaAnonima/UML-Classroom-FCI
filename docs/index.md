@@ -238,20 +238,17 @@ A iniciativa visa substituir a antiga arquitetura de software do Aquila-X — um
 |                          |                                                           | 
 # Diagrama de Sequência
 
-*&lt;Diagrama de ordem e interação dos objetos&gt;*
+![Diagrama de Sequencia](diagrama-sequencia.png)
 
 # Diagrama de Classes
 
-*&lt;Diagrama de relacionamento entre classes para os seus atributos e operações&gt;*
+![Diagrama de Classes](diagrama-classes.png)
 
 # Diagrama de Estados
 
-*&lt;Diagrama para permite modelar o comportamento interno de um determinado objeto, subsistema ou sistema global&gt;*
+![Diagrama de Estados](diagrama-estados.png)
 
 # Diagrama de Implantação
 
-*&lt;Diagrama para exibir o relacionamento de hardware e software no projeto&gt;*
+![Diagrama de Implantação](diagrama-implantacao.png)
 
-# Referências
-
-*&lt;Lista de referências&gt;*
