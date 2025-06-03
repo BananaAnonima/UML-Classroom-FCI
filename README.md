@@ -107,7 +107,7 @@ A iniciativa visa substituir a antiga arquitetura de software do Aquila-X — um
 
 # Diagrama de Atividades
 
-![Diagrama de Atividades](diagrama-atividades01.png)
+![Diagrama de Atividades](docs/diagrama-atividades01.png)
 ![Diagrama de Atividades](diagrama-atividades02.png)
 
 # Diagrama de Casos de Uso
