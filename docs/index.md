@@ -250,5 +250,5 @@ A iniciativa visa substituir a antiga arquitetura de software do Aquila-X — um
 
 # Diagrama de Implantação
 
-![Diagrama de Implantação](diagrama-implantacao.png)
+![Diagrama de Implantação](diagrama-implantação.png)
 
