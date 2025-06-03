@@ -108,11 +108,11 @@ A iniciativa visa substituir a antiga arquitetura de software do Aquila-X — um
 # Diagrama de Atividades
 
 ![Diagrama de Atividades](docs/diagrama-atividades01.png)
-![Diagrama de Atividades](diagrama-atividades02.png)
+![Diagrama de Atividades](docs/diagrama-atividades02.png)
 
 # Diagrama de Casos de Uso
 
-![Diagrama de Casos de Uso](casos-de-uso.png)
+![Diagrama de Casos de Uso](docs/casos-de-uso.png)
 
 # Descrição dos Casos de Uso
 
@@ -238,17 +238,17 @@ A iniciativa visa substituir a antiga arquitetura de software do Aquila-X — um
 |                          |                                                           | 
 # Diagrama de Sequência
 
-![Diagrama de Sequencia](diagrama-sequencia.png)
+![Diagrama de Sequencia](docs/diagrama-sequencia.png)
 
 # Diagrama de Classes
 
-![Diagrama de Classes](diagrama-classes.png)
+![Diagrama de Classes](docs/diagrama-classes.png)
 
 # Diagrama de Estados
 
-![Diagrama de Estados](diagrama-estados.png)
+![Diagrama de Estados](docs/diagrama-estados.png)
 
 # Diagrama de Implantação
 
-![Diagrama de Implantação](diagrama-implantação.png)
+![Diagrama de Implantação](docs/diagrama-implantação.png)
 
